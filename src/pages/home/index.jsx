@@ -1,12 +1,8 @@
 import React from "react";
-import { Carousel } from "antd";
+import CarouselComponent from "../../components/home/CarouselComponent";
 
 const HomePage = () => {
-  return (
-    <>
-      <h1>HomePage</h1>
-    </>
-  );
+  return <CarouselComponent />;
 };
 
 export default HomePage;
