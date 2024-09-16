@@ -11,6 +11,24 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
 
+const menuItems = [
+  {
+    key: "1",
+    icon: <UserOutlined />,
+    label: <NavLink to="/admin">Dashboard</NavLink>,
+  },
+  {
+    key: "2",
+    icon: <VideoCameraOutlined />,
+    label: <NavLink to="/admin/category">Category</NavLink>,
+  },
+  {
+    key: "3",
+    icon: <UploadOutlined />,
+    label: <NavLink to="/admin/banner">Banner</NavLink>,
+  },
+];
+
 const AdminLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
 
@@ -19,19 +37,13 @@ const AdminLayout = () => {
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed} width={288}>
           <div className="p-4 bg-gray-200">
-            <h1 className="text-2xl m-0">LOGO.</h1>
+            {collapsed ? (
+              <h1 className="text-2xl m-0">LO.</h1>
+            ) : (
+              <h1 className="text-2xl m-0">LOGO.</h1>
+            )}
           </div>
-          <Menu className="h-screen">
-            <Menu.Item icon={<UserOutlined />} key={1}>
-              <NavLink to={""}>Item 1</NavLink>
-            </Menu.Item>
-            <Menu.Item icon={<VideoCameraOutlined />} key={2}>
-              <NavLink to={""}>Item 2</NavLink>
-            </Menu.Item>
-            <Menu.Item icon={<UploadOutlined />} key={3}>
-              <NavLink to={""}>Item 3</NavLink>
-            </Menu.Item>
-          </Menu>
+          <Menu items={menuItems} className="h-screen" />
         </Sider>
         <Layout>
           <Header className="px-4 bg-gray-200 flex items-center justify-between">
@@ -44,7 +56,7 @@ const AdminLayout = () => {
               </Button>
             </div>
           </Header>
-          <Content className=" m-4 p-10 bg-gray-200 border rounded-lg">
+          <Content className=" m-4 p-5 bg-gray-200 border rounded-lg">
             <Outlet />
           </Content>
         </Layout>

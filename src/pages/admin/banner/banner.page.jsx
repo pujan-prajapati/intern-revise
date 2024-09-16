@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-const CategoryList = () => {
+const BannerPage = () => {
   return (
     <>
       <Outlet />
@@ -9,4 +9,4 @@ const CategoryList = () => {
   );
 };
 
-export default CategoryList;
+export default BannerPage;

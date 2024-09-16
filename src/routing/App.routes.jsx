@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
-
-import HomeLayout from "../layout/home.layout";
-import AboutPage from "../pages/home/aboutpage";
-import HomePage from "../pages/home";
-import ContactPage from "../pages/home/contactpage";
-import LoginPage from "../pages/auth/loginpage";
-import AdminLayout from "../layout/admin.layout";
-
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import { AdminLayout, HomeLayout } from "../layout";
+
+import { AboutPage, ContactPage, HomePage } from "../pages/home";
+
+import LoginPage from "../pages/auth/loginpage";
+
+import DashboardPage from "../pages/admin/dashboard";
+import CategoryPage from "../pages/admin/category";
+
+import { BannerList, BannerPage, BannerAdd } from "../pages/admin/banner";
 
 const Logout = () => {
   const navigate = useNavigate();
@@ -34,7 +37,16 @@ const AppRouter = () => {
             <Route path="contact" element={<ContactPage />} />
           </Route>
 
-          <Route path="/admin" element={<AdminLayout />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<DashboardPage />} />
+
+            <Route path="category" element={<CategoryPage />} />
+
+            <Route path="banner" element={<BannerPage />}>
+              <Route index element={<BannerList />} />
+              <Route path="add" element={<BannerAdd />} />
+            </Route>
+          </Route>
 
           <Route path="/login" element={<LoginPage />} />
 

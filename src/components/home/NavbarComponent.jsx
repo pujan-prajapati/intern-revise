@@ -6,6 +6,7 @@ import {
   AlertOutlined,
   MenuFoldOutlined,
 } from "@ant-design/icons";
+import Wrapper from "./Wrapper";
 
 const NavItems = [
   {
@@ -42,7 +43,8 @@ const NavbarComponent = () => {
   };
 
   return (
-    <section className="container px-4 md:px-0 mx-auto py-4">
+    // <section className="container px-4 md:px-0 mx-auto py-4">
+    <Wrapper>
       <nav className="flex items-center justify-between">
         <h1 className="text-xl font-bold">LOGO.</h1>
 
@@ -104,7 +106,8 @@ const NavbarComponent = () => {
           </Drawer>
         </div>
       </nav>
-    </section>
+    </Wrapper>
+    // </section>
   );
 };
 

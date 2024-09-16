@@ -1,8 +1,5 @@
-import React from "react";
-import CarouselComponent from "../../components/home/CarouselComponent";
+import HomePage from "./homepage";
+import AboutPage from "./aboutpage";
+import ContactPage from "./contactpage";
 
-const HomePage = () => {
-  return <CarouselComponent />;
-};
-
-export default HomePage;
+export { HomePage, AboutPage, ContactPage };
